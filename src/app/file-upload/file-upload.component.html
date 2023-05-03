@@ -1,0 +1,27 @@
+<style></style>
+<label>upload a file:</label>
+<input
+  id="fileClear"
+  class="modify"
+  type="file"
+  (change)="onFileSelected($event)"
+/>
+<button
+  class="buttonCheck"
+  [disabled]="!selectedFile"
+  type="submit"
+  (click)="onUpload()"
+  clickable
+>
+  Upload</button
+>&nbsp;&nbsp;
+<button
+  class="cancelButton"
+  [disabled]="!selectedFile"
+  type="submit"
+  (click)="onCancel()"
+>
+  Cancel
+</button>
+<p class="message">{{ message }}</p>
+<app-process *ngIf="showProcess"></app-process>

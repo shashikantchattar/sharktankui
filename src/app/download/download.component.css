@@ -1,0 +1,12 @@
+label {
+  bottom: 100px;
+  padding-left: 250px;
+  padding-top: 100px;
+  font-size: larger;
+}
+
+.buttonCheck {
+  background-color: blue;
+  color: white;
+  margin-left: 50px;
+}

@@ -1,0 +1,49 @@
+label {
+  bottom: 100px;
+  padding-left: 250px;
+  padding-top: 100px;
+  font-size: larger;
+}
+.modify {
+  padding-left: 100px;
+  padding-top: 100px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 330px !important;
+  padding: 8px;
+  margin-left: 8px;
+}
+.buttonCheck {
+  background-color: blue;
+  color: white;
+  margin-left: 120px;
+}
+.cancelButton {
+  background-color: blue;
+  color: white;
+}
+.buttonCheck:hover {
+  background-color: cornflowerblue;
+}
+.cancelButton:hover {
+  background-color: red;
+}
+.message:empty {
+  margin-left: 350px;
+  margin-top: 50px;
+  background-color: #f0d3d3;
+  border-radius: 0px;
+  width: 0px;
+  border: 0px solid #ccc;
+}
+
+.message {
+  margin-left: 370px;
+  margin-top: 50px;
+  background: lightgreen;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 330px !important;
+  padding: 8px;
+}

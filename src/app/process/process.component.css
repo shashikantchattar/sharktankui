@@ -1,0 +1,30 @@
+label {
+  bottom: 100px;
+  padding-left: 250px;
+  padding-top: 100px;
+  font-size: larger;
+}
+.buttonCheck {
+  background-color: blue;
+  color: white;
+  margin-left: 100px;
+}
+
+.message:empty {
+  margin-left: 350px;
+  margin-top: 50px;
+  background-color: #f0d3d3;
+  border-radius: 0px;
+  width: 0px;
+  border: 0px solid #ccc;
+}
+
+.message {
+  margin-left: 370px;
+  margin-top: 50px;
+  background: lightgreen;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 330px !important;
+  padding: 8px;
+}
