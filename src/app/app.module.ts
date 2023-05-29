@@ -9,7 +9,13 @@ import { InMemoryDataService } from './app.inmemory-data-service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { ProcessComponent } from './process/process.component';
 import { DownloadComponent } from './download/download.component';
-
+import { Routes } from '@angular/router';
+const routes: Routes = [
+  {
+    path: 'file-upload',
+    component: FileUploadComponent,
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,

@@ -15,11 +15,15 @@ export class DownloadComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.fileUrl = '';
   }
+  //api/files/download
   ngOnInit(): void {}
   ondownload() {
     alert('download is also working');
     this.http
-      .get('api/files/download', { responseType: 'blob' })
+      .get(
+        'https://4c6q152v3i.execute-api.ap-southeast-1.amazonaws.com/dev/sharktank-files-220523/input/testfile.csv',
+        { responseType: 'blob' }
+      )
       .subscribe((blob: Blob) => {
         const reader = new FileReader();
         reader.onload = () => {

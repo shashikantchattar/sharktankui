@@ -5,6 +5,7 @@
   class="modify"
   type="file"
   (change)="onFileSelected($event)"
+  accept=".csv"
 />
 <button
   class="buttonCheck"
@@ -24,4 +25,28 @@
   Cancel
 </button>
 <p class="message">{{ message }}</p>
+<div>
+  <button (click)="toggleTableVisibility()" *ngIf="showCross">
+    <span *ngIf="showTable">X</span>
+  </button>
+  <table id="table" *ngIf="showTable">
+    <thead>
+      <tr>
+        <th *ngFor="let header of tableData[0]">
+          {{ header.replace("_", "&nbsp") }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of tableData.slice(1)">
+        <tr *ngIf="row.length === tableData[0].length">
+          <td id="datacolor" *ngFor="let cell of row">{{ cell }}</td>
+        </tr>
+      </ng-container>
+      <!-- <tr *ngFor="let row of tableData.slice(1)">
+        <td id="datacolor" *ngFor="let cell of row">{{ cell }}</td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>
 <app-process *ngIf="showProcess"></app-process>
