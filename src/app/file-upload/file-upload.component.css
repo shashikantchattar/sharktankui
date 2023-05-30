@@ -39,8 +39,8 @@ label {
 }
 
 .message {
-  margin-left: 370px;
-  margin-top: 50px;
+  margin-left: 30px;
+  margin-top: 10px;
   background: lightgreen;
   border-radius: 6px;
   border: 1px solid #ccc;

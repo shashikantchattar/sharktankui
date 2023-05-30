@@ -1,12 +1,13 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root',
 })
-export class InMemoryDataService implements InMemoryDbService {
+export class InMemoryDataService{
   constructor(private http: HttpClient) {}
+  // constructor() {}
   createDb() {
     // const files = [
     //   { id: 1, name: 'file1.txt', size: 1024 },
@@ -17,37 +18,52 @@ export class InMemoryDataService implements InMemoryDbService {
     return { message };
   }
 
-  post(RequestInfo: any) {
-    if (RequestInfo.url.endsWith('/upload')) {
-      return RequestInfo.utils.createResponse$(() => {
-        return {
-          status: 200,
-          body: { message: 'File uploaded successfully.' },
-        };
-      });
-    }
-    return undefined;
-  }
-  uploadFile(fd: any) {
-    const headers = new HttpHeaders();
-    headers.append('Secret-Key', 'BB1BmDOMLqUEGcP1LDsLTkiSN5MUs4JhAJ4scpC');
-    headers.append('Access-Key', 'AKIA3LNP7LXEGNPSPO5U');
-    headers.append('Authentication-Type', 'AWS');
-    headers.append('AWS-Region', 'ap-southeast-1');
-    // const headers = new HttpHeaders({
-    //   Authorization:
-    //     'AWS4-HMAC-SHA256 Credential=AKIA3LNP7LXEGNPSPO5U/YYYYMMDD/ap-southeast-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=<Signature>',
-    // });
+  // post(RequestInfo: any) {
+  //   if (RequestInfo.url.endsWith('/upload')) {
+  //     return RequestInfo.utils.createResponse$(() => {
+  //       return {
+  //         status: 200,
+  //         body: { message: 'File uploaded successfully.' },
+  //       };
+  //     });
+  //   }
+  //   return undefined;
+  // }
+  uploadFile(filename: String, file: any) {
+    const headers = new HttpHeaders({
+      Authorization:
+        'AWS AKIA3LNP7LXEGNPSPO5U:BB1BmDOMLqUEGcP1LDsLTkiSN5MUs4JhAJ4scpC',
+    });
     this.http
       .put<any>(
-        'https://4c6q152v3i.execute-api.ap-southeast-1.amazonaws.com/dev/sharktank-files-220523/input/test1.csv',
-        fd,
-
+        'https://4c6q152v3i.execute-api.ap-southeast-1.amazonaws.com/dev/sharktank-files-220523/input/'+filename,
+        file,
         { headers }
       )
       .subscribe((res) => {
+        // console.log(res);
         return res;
       });
+  }
+  downloadFile(filename: String) {
+    console.log("File Download");
+    let headers = new HttpHeaders({
+      Authorization:
+        'AWS AKIA3LNP7LXEGNPSPO5U:BB1BmDOMLqUEGcP1LDsLTkiSN5MUs4JhAJ4scpC',responseType: 'text' as const 
+        
+    });
+    return this.http.get<any>('https://4c6q152v3i.execute-api.ap-southeast-1.amazonaws.com/dev/sharktank-files-220523/input/'
+    +filename,
+    { headers});
+    // this.http
+    //   .get<any>(
+    //     'https://4c6q152v3i.execute-api.ap-southeast-1.amazonaws.com/dev/sharktank-files-220523/input/'+filename,
+    //     { headers}
+    //   )
+    //   .subscribe((res) => {
+    //     console.log(res);
+    //     return res;
+    //   });
   }
   get(RequestInfo: any) {
     if (RequestInfo.url.endsWith('/process')) {

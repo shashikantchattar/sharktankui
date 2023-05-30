@@ -18,14 +18,16 @@ import { InMemoryDataService } from '../app.inmemory-data-service';
 export class FileUploadComponent implements OnInit {
   [x: string]: any;
   // @Output() uploadedFile = new EventEmitter<File>();
-  @Input() showProcess = false;
-  selectedFile: any;
+  @Input() showProcess = true;
+  selectedFile: any ;
   message: any;
   fileContent: any;
   tableData: any[] = [];
   processbutton: boolean = false;
   showTable = true;
   showCross = false;
+  fd = new FormData();
+  fileName = '';
 
   constructor(
     private router: Router,
@@ -59,9 +61,14 @@ export class FileUploadComponent implements OnInit {
     //   Authorization:
     //     'AWS4-HMAC-SHA256 Credential=AKIA3LNP7LXEGNPSPO5U/YYYYMMDD/ap-southeast-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=<Signature>',
     // });
-    const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
-    this.inmemorydataservice.uploadFile(fd);
+    if (this.selectedFile) {
+      this.fileName = this.selectedFile.name;
+      // const formData = new FormData();
+      // this.fd.append(this.fileName, this.selectedFile);
+
+      this.inmemorydataservice.uploadFile(this.fileName,this.selectedFile);
+      this.message = "File uploaded successfully.";
+    }
   }
   onCancel() {
     var a = document.getElementById('fileClear') as HTMLInputElement;
