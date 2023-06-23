@@ -15,20 +15,20 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ],
 })
 export class ProcessComponent implements OnInit {
-  @Input() showDownload = false;
-  // @Output() processCompleted = new EventEmitter();
-  processing = true;
-  message: any;
-  constructor() {}
+  //   @Input() showDownload = false;
+  //   // @Output() processCompleted = new EventEmitter();
+  //   processing = true;
+  //   message: any;
+  //   constructor() {}
 
   ngOnInit(): void {}
-  onProcess() {
-    this.showDownload = true;
-    //this.processCompleted.emit();
-    // this.http.get<any>('api/files/process').subscribe((res) => {
-    //   this.processing = false;
-    //   this.message = res.message;
-    // });
-    this.processing = false;
-  }
+  //   onProcess() {
+  //     this.showDownload = true;
+  //     //this.processCompleted.emit();
+  //     // this.http.get<any>('api/files/process').subscribe((res) => {
+  //     //   this.processing = false;
+  //     //   this.message = res.message;
+  //     // });
+  //     this.processing = false;
+  //   }
 }

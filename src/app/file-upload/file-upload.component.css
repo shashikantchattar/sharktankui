@@ -1,8 +1,7 @@
 label {
   bottom: 100px;
-  padding-left: 250px;
-  padding-top: 100px;
   font-size: larger;
+  color: rgb(73, 36, 36);
 }
 .modify {
   padding-left: 100px;
@@ -17,14 +16,20 @@ label {
 .buttonCheck {
   background-color: blue;
   color: white;
-  margin-left: 120px;
+  margin-left: 20px;
 }
 .cancelButton {
   background-color: blue;
   color: white;
 }
 .buttonCheck:hover {
-  background-color: cornflowerblue;
+  background-color: rgb(75, 162, 9);
+}
+.buttonCheck1:hover {
+  background-color: rgb(75, 162, 9);
+}
+.buttonCheck2:hover {
+  background-color: rgb(75, 162, 9);
 }
 .cancelButton:hover {
   background-color: red;
@@ -32,7 +37,7 @@ label {
 .message:empty {
   margin-left: 350px;
   margin-top: 50px;
-  background-color: #f0d3d3;
+  background-color: white;
   border-radius: 0px;
   width: 0px;
   border: 0px solid #ccc;
@@ -64,3 +69,66 @@ th {
 #datacolor {
   color: black;
 }
+.DataAnalytics {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: fit-content;
+  margin-left: 28%;
+  position: center;
+}
+.datasetHeading {
+  text-align: center;
+  padding-bottom: 1em;
+  color: #079f14;
+  font-size: 3.1em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-image: linear-gradient(
+    135deg,
+    white 0%,
+    white 65%,
+    black 75%,
+    white 80%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: block;
+  -webkit-text-stroke: 1px rgb(92, 36, 212);
+}
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+.Fullpage {
+  min-height: 90%;
+  overflow: hidden;
+  background-image: url("/assets/Images/HomePage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.buttonCheck2 {
+  background-color: blue;
+  color: white;
+  margin-left: 50px;
+}
+.buttonCheck1 {
+  background-color: blue;
+  color: white;
+  margin-left: 100px;
+}
+.contentPage {
+  margin-top: 10%;
+}
+.card {
+  transition: 0.3s;
+}
+/* .card:hover {
+  box-shadow: 8px 8px 8px blue;
+  transform: scale(1.2);
+} */

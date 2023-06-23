@@ -1,10 +1,10 @@
-label {
+/* label {
   bottom: 100px;
   padding-left: 250px;
   padding-top: 100px;
   font-size: larger;
 }
-.buttonCheck {
+.buttonCheck1 {
   background-color: blue;
   color: white;
   margin-left: 100px;
@@ -13,7 +13,7 @@ label {
 .message:empty {
   margin-left: 350px;
   margin-top: 50px;
-  background-color: #f0d3d3;
+  background-color: white;
   border-radius: 0px;
   width: 0px;
   border: 0px solid #ccc;
@@ -27,4 +27,37 @@ label {
   border: 1px solid #ccc;
   width: 330px !important;
   padding: 8px;
+} */
+
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scrolled .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #cbbcb1;
+}
+
+.mask-custom {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+}
+.container #Hexa {
+  margin: 0 16px;
 }

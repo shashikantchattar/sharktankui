@@ -1,52 +1,83 @@
-<style></style>
-<label>upload a file:</label>
-<input
-  id="fileClear"
-  class="modify"
-  type="file"
-  (change)="onFileSelected($event)"
-  accept=".csv"
-/>
-<button
-  class="buttonCheck"
-  [disabled]="!selectedFile"
-  type="submit"
-  (click)="onUpload()"
-  clickable
->
-  Upload</button
->&nbsp;&nbsp;
-<button
-  class="cancelButton"
-  [disabled]="!selectedFile"
-  type="submit"
-  (click)="onCancel()"
->
-  Cancel
-</button>
-<p class="message">{{ message }}</p>
-<div>
-  <button (click)="toggleTableVisibility()" *ngIf="showCross">
-    <span *ngIf="showTable">X</span>
-  </button>
-  <table id="table" *ngIf="showTable">
-    <thead>
-      <tr>
-        <th *ngFor="let header of tableData[0]">
-          {{ header.replace("_", "&nbsp") }}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let row of tableData.slice(1)">
-        <tr *ngIf="row.length === tableData[0].length">
-          <td id="datacolor" *ngFor="let cell of row">{{ cell }}</td>
-        </tr>
-      </ng-container>
-      <!-- <tr *ngFor="let row of tableData.slice(1)">
+<div class="Fullpage vh-100">
+  <div class="contentPage">
+    <h4 class="datasetHeading">Process your Dataset</h4>
+    <div class="card DataAnalytics">
+      <div class="card-body">
+        <div>
+          <label>upload a file:</label>
+          <input
+            id="fileClear"
+            class="modify"
+            type="file"
+            (change)="onFileSelected($event)"
+            accept=".csv"
+          />
+          <button
+            class="buttonCheck"
+            [disabled]="!selectedFile"
+            type="submit"
+            (click)="onUpload()"
+            clickable
+          >
+            Upload</button
+          >&nbsp;&nbsp;
+          <button
+            class="cancelButton"
+            [disabled]="!selectedFile"
+            type="submit"
+            (click)="onCancel()"
+          >
+            Cancel
+          </button>
+          <p class="message"></p>
+          <div>
+            <button (click)="toggleTableVisibility()" *ngIf="showCross">
+              <span *ngIf="showTable">X</span>
+            </button>
+            <!-- <table id="table" *ngIf="showTable">
+              <thead>
+                <tr>
+                  <th *ngFor="let header of tableData[0]">
+                    {{ header.replace("_", "&nbsp") }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let row of tableData.slice(1)">
+                  <tr *ngIf="row.length === tableData[0].length">
+                    <td id="datacolor" *ngFor="let cell of row">{{ cell }}</td>
+                  </tr>
+                </ng-container>
+                 <tr *ngFor="let row of tableData.slice(1)">
         <td id="datacolor" *ngFor="let cell of row">{{ cell }}</td>
-      </tr> -->
-    </tbody>
-  </table>
+      </tr> 
+              </tbody>
+            </table> -->
+          </div>
+        </div>
+        <div>
+          <label>Process the upload file:</label>
+          <button class="buttonCheck1" (click)="onProcess()" clickable>
+            Process
+          </button>
+          <p class="message"></p>
+        </div>
+        <div>
+          <label>Download the processed file:</label>
+          <button class="buttonCheck2" (click)="ondownload()" clickable>
+            Download
+          </button>
+          <p class="message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<app-process *ngIf="showProcess"></app-process>
+<ngx-spinner
+  bdColor="white"
+  size="medium"
+  color="#000"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: black">Processing dataset...</p>
+</ngx-spinner>
