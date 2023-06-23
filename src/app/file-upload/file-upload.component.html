@@ -29,7 +29,7 @@
           >
             Cancel
           </button>
-          <p class="message"></p>
+          <p class="message">{{ this.message }}</p>
           <div>
             <button (click)="toggleTableVisibility()" *ngIf="showCross">
               <span *ngIf="showTable">X</span>
